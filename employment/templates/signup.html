@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Employee Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-600 via-purple-600 to-red-500 min-h-screen">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                    Create Your Account
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    Join EMS Pro today
+                </p>
+            </div>
+            <form class="mt-8 space-y-6" method="post">
+                {% csrf_token %}
+                <div class="space-y-4">
+                    <div>
+                        <label for="company-name" class="block text-sm font-medium text-gray-700">Company Name</label>
+                        <input id="company-name" name="company_name" type="text" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Enter your company name">
+                    </div>
+                    <div>
+                        <label for="full-name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input id="full-name" name="full_name" type="text" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input id="email-address" name="email" type="email" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Enter your email address">
+                    </div>
+                    <div>
+                        <label for="phone-number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input id="phone-number" name="phone" type="tel" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Enter your phone number">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input id="password" name="password" type="password" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Create a password">
+                    </div>
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input id="confirm-password" name="confirm_password" type="password" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm" placeholder="Confirm your password">
+                    </div>
+                    <div>
+                        <label for="employee-count" class="block text-sm font-medium text-gray-700">Number of Employees</label>
+                        <select id="employee-count" name="employee_count" required class="mt-1 block w-full px-3 py-2 border rounded-md text-sm bg-white">
+                            <option value="">Select employee count</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="500+">500+ employees</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <input id="agree-terms" name="agree_terms" type="checkbox" required class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                    <label for="agree-terms" class="ml-2 block text-sm text-gray-900">
+                        I agree to the 
+                        <a href="#" class="text-indigo-600 hover:text-indigo-500">Terms of Service</a>
+                        and 
+                        <a href="#" class="text-indigo-600 hover:text-indigo-500">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Create Account
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-sm text-gray-600">
+                        Already have an account? 
+                        <a href="{% url 'signin' %}" class="font-medium text-indigo-600 hover:text-indigo-500">
+                            Sign in here
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS Pro - About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-600 via-purple-600 to-purple-800 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="p-6">
+        <div class="flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">EMS Pro</h1>
+            <div class="space-x-6">
+                <a href="{% url 'dashboard' %}" class="text-white hover:text-blue-200 transition-colors">Dashboard</a>
+                <a href="{% url 'about' %}" class="text-white hover:text-blue-200 transition-colors font-semibold">About</a>
+                <a href="{% url 'contact' %}" class="text-white hover:text-blue-200 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">About EMS Pro</h2>
+
+                <div class="text-gray-600 space-y-6">
+                    <p class="text-lg leading-relaxed">
+                        EMS Pro is a comprehensive employee management solution designed to streamline your workforce operations.
+                        Our platform empowers organizations to efficiently track, manage, and optimize their team's performance
+                        through intuitive tools and advanced analytics.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        With years of experience in HR technology, we understand the challenges businesses face in managing
+                        their human resources. That's why we've created a solution that combines powerful functionality with
+                        user-friendly design, making employee management accessible and efficient for organizations of all sizes.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <!-- Feature 1 -->
+                        <div class="text-center p-6 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                {% include "icons/people_icon.html" %}
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Employee Records</h3>
+                            <p class="text-gray-600">
+                                Maintain comprehensive employee profiles with personal information, job details,
+                                and employment history in one centralized location.
+                            </p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="text-center p-6 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                {% include "icons/clock_icon.html" %}
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Attendance Tracking</h3>
+                            <p class="text-gray-600">
+                                Monitor employee attendance, track work hours, and generate detailed reports for payroll and performance evaluation.
+                            </p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="text-center p-6 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
+                            <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                {% include "icons/bar_chart_icon.html" %}
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Performance Management</h3>
+                            <p class="text-gray-600">
+                                Set goals, conduct evaluations, and track employee performance with our intuitive performance management tools.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="mt-12 grid md:grid-cols-2 gap-8">
+                        <!-- Mission -->
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Our Mission</h3>
+                            <p class="text-gray-600">
+                                To revolutionize workforce management by providing innovative, user-friendly solutions
+                                that help organizations unlock their team's full potential and drive business success.
+                            </p>
+                        </div>
+
+                        <!-- Why Choose -->
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Why Choose EMS Pro?</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    {% include "icons/check_icon.html" %}
+                                    Easy-to-use interface
+                                </li>
+                                <li class="flex items-center">
+                                    {% include "icons/check_icon.html" %}
+                                    24/7 customer support
+                                </li>
+                                <li class="flex items-center">
+                                    {% include "icons/check_icon.html" %}
+                                    Secure data protection
+                                </li>
+                                <li class="flex items-center">
+                                    {% include "icons/check_icon.html" %}
+                                    Scalable solutions
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-12">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Ready to Get Started?</h3>
+                        <p class="text-gray-600 mb-6">
+                            Join thousands of organizations that trust EMS Pro for their employee management needs.
+                        </p>
+                        <div class="space-x-4 mb-4">
+                            <a href="{% url 'dashboard' %}"
+                                class="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+                                Get Started Today
+                            </a>
+                            <a href="{% url 'contact' %}"
+                                class="inline-block border-2 border-purple-600 text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-8 text-center text-white/80">
+        <p>&copy; 2025 EMS Pro. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
