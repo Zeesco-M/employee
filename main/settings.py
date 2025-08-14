@@ -108,6 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'employment.CustomUser'
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://employee.sevalla.app",
+]
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
