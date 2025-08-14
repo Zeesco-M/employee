@@ -4,131 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMS Pro - About</title>
+    <title>EMS Pro - Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-blue-600 via-purple-600 to-purple-800 min-h-screen">
+<body class="bg-gradient-to-br from-indigo-600 via-purple-700 to-pink-700 min-h-screen">
 
     <!-- Navigation -->
     <nav class="p-6">
         <div class="flex justify-between items-center">
             <h1 class="text-white text-2xl font-bold">EMS Pro</h1>
             <div class="space-x-6">
-                <a href="{% url 'dashboard' %}" class="text-white hover:text-blue-200 transition-colors">Dashboard</a>
-                <a href="{% url 'about' %}" class="text-white hover:text-blue-200 transition-colors font-semibold">About</a>
-                <a href="{% url 'contact' %}" class="text-white hover:text-blue-200 transition-colors">Contact</a>
+                <a href="{% url 'dashboard' %}" class="text-white hover:text-pink-200 transition-colors">Dashboard</a>
+                <a href="{% url 'land' %}" class="text-white font-semibold hover:text-pink-200">Home</a>
+                <a href="{% url 'contact' %}" class="text-white hover:text-pink-200">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- About Section -->
+    <!-- Services Section -->
     <section class="px-6 py-12">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl p-8">
-                <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">About EMS Pro</h2>
+                <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">Our Services</h2>
 
-                <div class="text-gray-600 space-y-6">
-                    <p class="text-lg leading-relaxed">
-                        EMS Pro is a comprehensive employee management solution designed to streamline your workforce operations.
-                        Our platform empowers organizations to efficiently track, manage, and optimize their team's performance
-                        through intuitive tools and advanced analytics.
-                    </p>
-                    <p class="text-lg leading-relaxed">
-                        With years of experience in HR technology, we understand the challenges businesses face in managing
-                        their human resources. That's why we've created a solution that combines powerful functionality with
-                        user-friendly design, making employee management accessible and efficient for organizations of all sizes.
-                    </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
+                    At EMS Pro, we deliver cutting-edge workforce solutions tailored to help you boost productivity,
+                    simplify operations, and create a thriving workplace environment.
+                </p>
 
-                    <!-- Features -->
-                    <div class="grid md:grid-cols-3 gap-6 mt-8">
-                        <!-- Feature 1 -->
-                        <div class="text-center p-6 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                {% include "icons/people_icon.html" %}
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Employee Records</h3>
-                            <p class="text-gray-600">
-                                Maintain comprehensive employee profiles with personal information, job details,
-                                and employment history in one centralized location.
-                            </p>
-                        </div>
-
-                        <!-- Feature 2 -->
-                        <div class="text-center p-6 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
-                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                {% include "icons/clock_icon.html" %}
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Attendance Tracking</h3>
-                            <p class="text-gray-600">
-                                Monitor employee attendance, track work hours, and generate detailed reports for payroll and performance evaluation.
-                            </p>
-                        </div>
-
-                        <!-- Feature 3 -->
-                        <div class="text-center p-6 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
-                            <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                {% include "icons/bar_chart_icon.html" %}
-                            </div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Performance Management</h3>
-                            <p class="text-gray-600">
-                                Set goals, conduct evaluations, and track employee performance with our intuitive performance management tools.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Additional Information -->
-                    <div class="mt-12 grid md:grid-cols-2 gap-8">
-                        <!-- Mission -->
-                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Our Mission</h3>
-                            <p class="text-gray-600">
-                                To revolutionize workforce management by providing innovative, user-friendly solutions
-                                that help organizations unlock their team's full potential and drive business success.
-                            </p>
-                        </div>
-
-                        <!-- Why Choose -->
-                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Why Choose EMS Pro?</h3>
-                            <ul class="text-gray-600 space-y-2">
-                                <li class="flex items-center">
-                                    {% include "icons/check_icon.html" %}
-                                    Easy-to-use interface
-                                </li>
-                                <li class="flex items-center">
-                                    {% include "icons/check_icon.html" %}
-                                    24/7 customer support
-                                </li>
-                                <li class="flex items-center">
-                                    {% include "icons/check_icon.html" %}
-                                    Secure data protection
-                                </li>
-                                <li class="flex items-center">
-                                    {% include "icons/check_icon.html" %}
-                                    Scalable solutions
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center mt-12">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Ready to Get Started?</h3>
-                        <p class="text-gray-600 mb-6">
-                            Join thousands of organizations that trust EMS Pro for their employee management needs.
-                        </p>
-                        <div class="space-x-4 mb-4">
-                            <a href="{% url 'dashboard' %}"
-                                class="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                                Get Started Today
-                            </a>
-                            <a href="{% url 'contact' %}"
-                                class="inline-block border-2 border-purple-600 text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300">
-                                Contact Us
-                            </a>
-                        </div>
-                    </div>
+                <!-- Service Cards -->
+                <div class="grid md:grid-cols-3 gap-6">
                     
+                    <!-- Service 1 -->
+                    <div class="p-6 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors text-center">
+                        <div class="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M12 4a4 4 0 110 8 4 4 0 010-8zM6 20H1v-2a3 3 0 015.356-1.857M12 14a4 4 0 00-4 4v2h8v-2a4 4 0 00-4-4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Team Management</h3>
+                        <p class="text-gray-600">
+                            Organize your workforce efficiently with our powerful team coordination tools.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="p-6 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M11 3v18m4-4h6M5 19H1M15 7h6M9 15H3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Data Analytics</h3>
+                        <p class="text-gray-600">
+                            Gain insights into performance metrics to make informed business decisions.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="p-6 bg-pink-50 rounded-lg hover:bg-pink-100 transition-colors text-center">
+                        <div class="w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 11c0-1.657-1.343-3-3-3S6 9.343 6 11s1.343 3 3 3 3-1.343 3-3zm9 0c0-1.657-1.343-3-3-3s-3 1.343-3 3 
+                                         1.343 3 3 3 3-1.343 3-3zM6 21c0-2.21 1.79-4 4-4h0c2.21 0 4 1.79 4 4v1H6v-1zm8 0c0-1.105.895-2 2-2h4c1.105 0 2 .895 2 2v1h-8v-1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Secure HR Solutions</h3>
+                        <p class="text-gray-600">
+                            Keep sensitive employee data safe with enterprise-grade security protocols.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
