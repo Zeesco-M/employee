@@ -108,9 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'employment.CustomUser'
 
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://employee.sevalla.app",
-]
+
 
 
 
