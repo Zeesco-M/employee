@@ -154,82 +154,61 @@ def employee_view(request):
     return render(request, 'employee_form.html', {'form': form})
 
 
+
 def signup(request):
     if request.method == 'POST':
-        # Get form data
-        full_name = request.POST.get('full_name', '').strip()
-        email = request.POST.get('email', '').strip()
-        company_name = request.POST.get('company_name', '').strip()
-        phone = request.POST.get('phone', '').strip()
+        full_name = request.POST.get('full_name', '')
+        email = request.POST.get('email', '').lower()
+        company_name = request.POST.get('company_name', '')
+        phone = request.POST.get('phone', '')
         password = request.POST.get('password', '')
         confirm_password = request.POST.get('confirm_password', '')
-        employee_count_str = request.POST.get('employee_count', '').strip()
 
-        # Validate passwords match
         if password != confirm_password:
-            messages.error(request, 'Passwords do not match.')
+            messages.error(request, "Passwords do not match.")
             return render(request, 'signup.html')
 
-        # Validate required fields
-        if not all([full_name, email, password, company_name, employee_count_str]):
-            messages.error(request, 'Please fill in all required fields.')
-            return render(request, 'signup.html')
+        if CustomUser.objects.filter(email=email).exists():
+            messages.error(request, "Email already exists. Please log in.")
+            return redirect('login')
 
-        # Convert employee count
-        employee_count_mapping = {
-            '1-10': 10,
-            '11-50': 50, 
-            '51-200': 200,
-            '201-500': 500,
-            '500+': 1000
-        }
-        employee_count = employee_count_mapping.get(employee_count_str, 0)
+        # Create user
+        user = CustomUser.objects.create_user(
+            email=email,
+            password=password,
+            full_name=full_name,
+            company_name=company_name,
+            phone=phone
+        )
 
-        try:
-            # Check if user already exists by full name
-            if CustomUser.objects.filter(full_name=full_name).exists():
-                messages.error(request, 'A user with that full name already exists.')
-                return render(request, 'signup.html')
-
-            if CustomUser.objects.filter(email=email).exists():
-                messages.error(request, 'A user with that email already exists.')
-                return render(request, 'signup.html')
-
-            # Create the user
-            user = CustomUser.objects.create_user(
-                email=email,
-                password=password,
-                full_name=full_name,
-                company_name=company_name,
-                phone=phone,
-                employee_count=employee_count
-            )
-
-            messages.success(request, 'Account created successfully! You are now logged in.')
-            auth_login(request, user)  # ✅ use auth_login to avoid name collision
-            return redirect('land.html')  # Change to your actual dashboard URL name
-
-        except Exception as e:
-            messages.error(request, f'An error occurred while creating your account: {str(e)}')
-            print(f"Signup error: {e}")  # For debugging
+        # Log them in immediately
+        login(request, user)
+        return redirect('land')
 
     return render(request, 'signup.html')
 
 
-
-
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        user = authenticate(request, username=email, password=password)  # change here
-        if user:
+        email = request.POST.get('email', '').lower()
+        password = request.POST.get('password', '')
+
+        # Use username=email if email is your USERNAME_FIELD
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
             login(request, user)
-            return redirect('land')  # redirect to landing page
+            return redirect('land')
         else:
-            return render(request, 'login.html', {'error': 'Invalid credentials'})
+            messages.error(request, "Invalid email or password.")
+            return render(request, 'login.html')
+
     return render(request, 'login.html')
 
+
+@login_required(login_url='/')
+def land(request):
+    return render(request, 'land.html')
 
 
 

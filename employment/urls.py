@@ -5,9 +5,9 @@ from .views import  login_view
 
 urlpatterns = [
     
-    path('', views.login_view, name='login'),  # default = login page
     path('signup/', views.signup, name='signup'),
-    path('land/', views.land, name='land'),  # landing page
+    path('land/', views.land, name='land'),
+
     path('add/', views.add_employee, name='add_employee'),
     path('all/', views.all_employee, name='all_employee'),
     path('dashboard/', views.dashboard, name='dashboard'),
@@ -15,9 +15,8 @@ urlpatterns = [
     path('form/', views.form, name='form'),
     path('generate/', views.generateemployee, name='generate_employee'),
     path('contact/', views.contact, name='contact'),
+
     path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('forgotpassword/', views.forgot_password, name='forgot_password'),
     path('passwordcomplete/', views.passwordcomplete, name='password_complete'),
 ]
-
-
