@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+from .views import  login_view
 
 urlpatterns = [
-   
+    path('', login_view, name='default'),
     path('land/', views.land, name='land'),
     path('add/', views.add_employee, name='add_employee'),
     path('all/', views.all_employee, name='all_employee'),

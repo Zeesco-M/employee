@@ -22,6 +22,7 @@ from django.contrib.auth import login as auth_login
 
 
 
+
 class CustomSignupForm(forms.ModelForm):
     class Meta:
         model = CustomUser
@@ -87,7 +88,7 @@ def reset_pass(request):
 
 
 def employee_root_redirect(request):
-    return redirect('land')  # uses the "land" named URL
+    return redirect('login')  # uses the "land" named URL
 
 
 def all_employees(request):
@@ -111,9 +112,6 @@ def contact(request):
 
 # def signup(request):
 #     return render(request, 'signup.html')
-
-def signin(request):
-    return render(request, 'login.html')
 
 def land(request):
     return render(request, 'land.html')
@@ -206,7 +204,7 @@ def signup(request):
 
             messages.success(request, 'Account created successfully! You are now logged in.')
             auth_login(request, user)  # ✅ use auth_login to avoid name collision
-            return redirect('land')  # Change to your actual dashboard URL name
+            return redirect('land.html')  # Change to your actual dashboard URL name
 
         except Exception as e:
             messages.error(request, f'An error occurred while creating your account: {str(e)}')
@@ -217,23 +215,18 @@ def signup(request):
 
 
 
-def login(request):
-    if request.user.is_authenticated:
-        return redirect('land')  # Redirect if already logged in
-
+def login_view(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+        email = request.POST['email']
+        password = request.POST['password']
         user = authenticate(request, email=email, password=password)
-        if user is not None:
+        if user:
             login(request, user)
-            return redirect('land')  # Where to go after login
+            return redirect('land')
         else:
             return render(request, 'login.html', {'error': 'Invalid credentials'})
-    
+
     return render(request, 'login.html')
-
-
 
 
 
