@@ -30,9 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
-
+LOGIN_URL = '/login/'          # where to send people if not logged in
+LOGIN_REDIRECT_URL = '/land/'  # where to send them after login
 
 # Application definition
 
