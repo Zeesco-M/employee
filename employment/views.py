@@ -11,6 +11,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.contrib import messages
 from django.contrib.auth import login as auth_login
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -110,11 +111,13 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html')
 
-# def signup(request):
-#     return render(request, 'signup.html')
 
+@login_required(login_url='/login/')
 def land(request):
     return render(request, 'land.html')
+
+
+
 
 def generateemployee(request):
     return render(request, 'generate employee.html')
@@ -219,13 +222,12 @@ def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=email, password=password)  # change here
         if user:
             login(request, user)
-            return redirect('land')
+            return redirect('land')  # redirect to landing page
         else:
             return render(request, 'login.html', {'error': 'Invalid credentials'})
-
     return render(request, 'login.html')
 
 
