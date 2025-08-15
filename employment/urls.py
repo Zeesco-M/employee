@@ -13,10 +13,10 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('about/', views.about, name='about'),
     path('form/', views.form, name='form'),
-    path('generate/', views.generateemployee, name='generate_employee'),
+    path('generate/', views.generate_employee, name='generate_employee'),
     path('contact/', views.contact, name='contact'),
 
     path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('forgotpassword/', views.forgot_password, name='forgot_password'),
-    path('passwordcomplete/', views.passwordcomplete, name='password_complete'),
+    path('passwordcomplete/', views.password_complete, name='password_complete'),
 ]

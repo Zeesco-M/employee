@@ -1,10 +1,8 @@
 from django import forms
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.core.mail import send_mail
 from .models import Employee, CustomUser
 
 # ---------------------------
@@ -26,7 +24,6 @@ class EmployeeForm(forms.Form):
 # Views
 # ---------------------------
 
-# Default landing page
 @login_required(login_url='/login/')
 def land(request):
     return render(request, 'land.html')
@@ -79,9 +76,9 @@ def login_view(request):
     return render(request, 'login.html')
 
 
-def all_employees(request):
+def all_employee(request):
     employees = Employee.objects.all()
-    return render(request, 'all_employees.html', {'employees': employees})
+    return render(request, 'all_employee.html', {'employee': employees})
 
 
 def add_employee(request):
@@ -112,7 +109,11 @@ def forgot_password(request):
     return render(request, 'forgot_password.html')
 
 
-def form_view(request):
+# ---------------------------
+# Form view for /form/
+# ---------------------------
+def form(request):
+    """This is the view linked to path('form/', views.form)"""
     return render(request, 'form.html')
 
 
