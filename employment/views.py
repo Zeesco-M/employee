@@ -78,11 +78,11 @@ def login_view(request):
 
 def all_employee(request):
     employees = Employee.objects.all()
-    return render(request, 'all_employee.html', {'employee': employees})
+    return render(request, 'all employee.html', {'employee': employees})
 
 
 def add_employee(request):
-    return render(request, 'add_employee.html')
+    return render(request, 'add employee.html')
 
 
 def dashboard(request):
@@ -98,15 +98,15 @@ def contact(request):
 
 
 def generate_employee(request):
-    return render(request, 'generate_employee.html')
+    return render(request, 'generate employee.html')
 
 
 def password_complete(request):
-    return render(request, 'password_complete.html')
+    return render(request, 'password complete.html')
 
 
 def forgot_password(request):
-    return render(request, 'forgot_password.html')
+    return render(request, 'forgot password.html')
 
 
 # ---------------------------
@@ -125,4 +125,4 @@ def employee_view(request):
             return render(request, 'success.html', {'name': name})
     else:
         form = EmployeeForm()
-    return render(request, 'employee_form.html', {'form': form})
+    return render(request, 'employee form.html', {'form': form})
